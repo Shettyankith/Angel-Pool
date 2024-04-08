@@ -1,0 +1,104 @@
+
+@media (max-width:900px) {
+
+    /* Login page  */
+    .login{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .dataintake,.img{
+        min-width: 100%;
+    }
+
+    .dataintake input{
+        width: 90%;
+    }
+
+    /* Signup page */
+    .signup{
+        flex-direction: column;
+    }
+
+    .signupimg,.signupform{
+        max-width: 100% !important;
+        padding: 2rem;
+        min-height: 50vh;
+    }
+
+    .signupimg{
+        object-fit: cover;
+    }
+
+    /* Upload cv  */
+    .uploadcv{
+        padding: 1rem;
+    }
+
+    .form{
+        padding: 0;
+    }
+   
+    /* Add new job */
+    .addnewimg{
+        width: 100%;
+        height: 50vh;
+    }
+
+    .fontreduce{
+        font-size: 1.5rem;
+    }
+
+    /* My account */
+
+    .profilepic2 img{
+        width: 85%;
+        height: 10%;
+    }
+
+    .savedcard{
+        flex-direction: column;
+    }
+
+    .emptybtn,.filledbtn{
+        width: max-content;
+        margin: 0;
+        margin-bottom: 1rem;
+    }
+
+    .userinfo{
+        max-width: 100%;
+    }
+
+    /* Home page */
+    .text{
+        min-width: 50vw;
+        background-color: aqua;
+    }
+
+    .text p,h4,h5,h2{
+        width: 100%;
+    }
+}
+
+
+@media (max-width:330px) {
+    .loginheading,.signupheading{
+        font-size: 1.5rem;
+    }
+
+    .uploadcv h5{
+        font-size: 1rem;
+    }
+
+    .fontreduce{
+        font-size: 1rem;
+    }
+}
+
+
+@media (max-width:1000px){
+    .infodiv{
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,119 @@
+
+            .menu{
+              display: flex;
+              background-color: white;
+              justify-content: space-between;
+              width: 100%;
+              min-height: 80px;
+              position: fixed;
+              top: 0;
+              align-items: center;
+              box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+            }
+
+            .menu h4{
+             width: max-content;
+            padding-top: 2%;
+              font-size: 1.7rem;
+              font-weight: 700;
+              margin-right: 1rem;
+            }
+
+            .menu h4 span{
+              color: #55bc7e;
+              font-weight: 700;
+            }
+
+            .menu li{
+              width: max-content;
+              list-style: none;
+              margin: 1rem;
+            }
+
+            .menu li a{
+             
+              text-decoration: none;
+              color: #37383d;
+            }
+
+             .navigationlinks{
+              display: flex;
+            } 
+
+            .authenticationbuttons{
+              display: flex;
+            } 
+
+            .authenticationbuttons li{
+              border: 3px solid #37383d;
+              background-color: transparent;
+              font-weight: 600;
+              min-width: 120px;
+              border-radius: 5px;
+              height: 40px;
+              text-align: center;
+              padding: 7px;
+            }
+
+            .authenticationbuttons p{
+              font-size: 1.7rem !important;
+              margin: 1rem;
+              display: none;
+            }
+
+            .authenticationbuttons li a{
+              color: #37383d ;
+            }
+
+            .authenticationbuttons li:hover{
+              background-color: #37383d ;
+              border: none;
+              color: white !important;
+              transition: 0.5s;
+            }
+
+            .authenticationbuttons li a:hover{
+              color: white !important;
+              text-decoration: none !important;
+            }
+
+            .menu li a:hover{
+              text-decoration: underline;
+              color: #55bc7e;
+            }
+
+            .sidebar{
+              position: fixed;
+              top: 0;
+              right: 0;
+              height: 100vh;
+              width: 300px;
+              z-index: 100;
+              display: none;
+              flex-direction: column;
+              justify-content: flex-start;
+              align-items: flex-start;
+              transition-duration: 1s;
+              transition: ease-in-out;
+              box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+            }
+
+            .display{
+              display: flex;
+              flex-direction: column;
+            }
+
+            .cross{
+              font-size: 2rem !important;
+            }
+
+            @media  (max-width:900px) {
+              .hide{
+                display: none;
+              }
+              .authenticationbuttons p{
+              display: block;
+            }
+
+            }
+   

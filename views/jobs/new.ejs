@@ -1,0 +1,85 @@
+<% layout('layouts/boilerplate') %>
+
+
+<body>
+    <h1 class="signupheading fontreduce">Create  a new  <span>Job</span> Opportunity</h1>
+    <div class="signup">
+        <div class="addnewimg">
+           
+        </div>
+
+        <div class="signupform">
+            <form
+            action="/jobs/new"
+            method="post"
+            novalidate
+            class="row g-3 needs-validation "
+            enctype="multipart/form-data"
+            
+          >
+          
+            <div class=" col-md-10 ">
+              <label for="title" class="form-label" >Job Title</label>
+              <input type="text" name="title"  required class="form-control"/>
+              <div class="valid-feedback">Looks good!</div>
+            </div>
+        
+            <div class="col-md-10 ">
+              <label for="company" class="form-label">Company</label>
+              <input type="text" name="company" class="form-control" required />
+              <div class="invalid-feedback">Please provide a company name.</div>
+            </div>
+        
+            <div class="col-md-10 ">
+              <label for="company" class="form-label">Company Logo</label>
+              <input type="file" name="logo" class="form-control" required />
+              <div class="invalid-feedback">Please provide a valid file.</div>
+            </div>
+        
+            <div class="col-md-10 ">
+              <label for="location" class="form-label">Location</label>
+              <input type="text" name="location" class="form-control" required />
+              <div class="invalid-feedback">Please provide a location.</div>
+            </div>
+        
+            <div class="col-md-10 ">
+              <label for="description" class="form-label">Job description</label>
+              <input type="text" name="description" class="form-control" required />
+              <div class="invalid-feedback">Job description must be provided</div>
+            </div>
+        
+            <div class="row g-3">
+            <div class="col-md-6 ">
+              <label for="salaryRange" class="form-label">salaryRange</label>
+              <input type="text" name="salaryRange" class="form-control" required />
+              <div class="invalid-feedback">Please provide a salary range.</div>
+            </div>
+        
+            <div class="col-md-4 ">
+              <label for="category" class="form-label">category</label>
+              <input type="text" name="category" class="form-control"/>
+              <div class="invalid-feedback">Please give job category.</div>
+            </div>
+          </div>
+        
+          <div class="row g-3">
+            <div class="col-md-5 ">
+              <label for="experience" class="form-label">experience</label>
+              <input type="text" name="experience" class="form-control" required />
+            </div>
+        
+            <div class="col-md-5 ">
+              <label for="remote" class="form-label">remote</label>
+              <select name="remote" id="remote" class="form-control" aria-label="Default select example" required>
+                <option value="available">Available</option>
+                <option value="not available">Not Available</option></select
+              >
+            </div>
+          </div>
+        
+            <div class="col-md-10">
+              <button class="loginbtn" type="submit">Create</button>
+            </div>
+          </form>
+        </div>
+</body>

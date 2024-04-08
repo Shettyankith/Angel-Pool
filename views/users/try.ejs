@@ -1,0 +1,26 @@
+<nav>
+    <ul class="menu">
+        <h1 class="logo">Job <span>Pool</span></h1>
+        <li class="item"><a href="/home">Home</a></li>
+        <li class="item"><a href="/jobs/new">Add new Job</a></li>
+        <li class="item"><a href="/jobs">New openings</a></li>
+        <li class="item"><a href="/jobs">Upload CV</a></li>
+        <% if(!currentUser){ %>
+          <form action="/dashboard" method="get">
+            <button class="btn">My Account</button>
+        </form>
+
+        <form action="/login" method="get">
+            <button class="btn">Sign Up</button>
+        </form>
+
+
+          
+          <li class=" button secondary"><a href="/register">Sign Up</a></li>
+        <% } %>
+        <% if(currentUser){ %>
+          <li class=" button"><a href="/logout">Logout</a></li>
+        <% }%>
+        <li class="toggle"><span class="bars"></span></li>
+    </ul>
+</nav>

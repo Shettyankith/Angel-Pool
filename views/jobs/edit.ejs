@@ -1,0 +1,70 @@
+<% layout('layouts/boilerplate') %>
+
+<body>
+  <form
+    action="/jobs/edit/<%= job._id %>"
+    method="post"
+    novalidate
+    class="row g-3 needs-validation offset-3"
+  >
+  <h1>Edit Details</h1>
+    <div class="col-md-8">
+      <label for="title"  class="form-label">Job Title</label>
+      <input type="text" name="title" value="<%= job.title %>" class="form-control"required/>
+      <div class="valid-feedback">Looks good!</div>
+    </div>
+
+    <div class="col-md-8">
+      <label for="company"  class="form-label">Company</label>
+      <input type="text" name="company" value="<%= job.company %>" class="form-control"required/>
+      <div class="invalid-feedback">Please provide a company name.</div>
+    </div>
+
+    <div class="col-md-8">
+      <label for="location"  class="form-label">Location</label>
+      <input type="text" name="location" value="<%= job.location %>" class="form-control"required/>
+      <div class="invalid-feedback">Please provide a location.</div>
+    </div>
+
+    <div class="col-md-8">
+      <label for="description"  class="form-label">Job description</label>
+      <input type="text" name="description" value="<%= job.description %>" class="form-control" required/>
+      <div class="invalid-feedback">Job description must be provided</div>
+    </div>
+
+    <div class="row g-3">
+      
+    
+    <div class="col-md-4">
+      <label for="salaryRange"  class="form-label">salaryRange</label>
+      <input type="text" name="salaryRange" value="<%= job.salaryRange %>" class="form-control" required/>
+      <div class="invalid-feedback">Please provide a salary range.</div>
+    </div>
+
+    <div class="col-md-4">
+      <label for="category"  class="form-label">category</label>
+      <input type="text" name="category" value="<%= job.category %>" class="form-control" required/>
+      <div class="invalid-feedback">Please give job category.</div>
+    </div>
+  </div>
+
+    <div class="row g-3">
+    <div class="col-md-5">
+      <label for="experience"  class="form-label">experience</label>
+      <input type="text" name="experience" value="<%= job.experience %>" class="form-control" required/>
+    </div>
+
+    <div class="col-md-3">
+      
+      <label for="remote" class="form-label" aria-label="Default select example">remote</label>
+      <select name="remote" id="remote" value="<%= job.remote %>" class="form-control" required>
+        <option value="available">Available</option>
+        <option value="not available">Not Available</option></select
+      >
+    </div>
+  </div>
+    <div class="col-md-12">
+      <button type="submit" class="btn btn-success">Edit</button>
+    </div>
+  </form>
+</body>

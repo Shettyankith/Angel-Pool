@@ -1,0 +1,90 @@
+<% layout('layouts/boilerplate') %>
+
+<body>
+  <h1 class="signupheading">Signup to <span>Angel</span> pool</h1>
+  <div class="signup">
+    <div class="signupimg"></div>
+
+    <div class="signupform">
+      <form
+        action="/register"
+        method="post"
+        enctype="multipart/form-data"
+        novalidate
+        class="row g-3 needs-validation "
+      >
+        <div class="col-md-10">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" name="username" required class="form-control" />
+        </div>
+
+        <div class="col-md-10">
+          <label for="mail" class="form-label">Email</label>
+          <input type="email" name="mail" required class="form-control" />
+        </div>
+
+        <div class="col-md-10">
+          <label for="pic" class="form-label">Profile Photo</label>
+          <input type="file" name="pic" required class="form-control" />
+        </div>
+
+        <div class="row g-2">
+          <div class="col-md-5">
+            <label for="role" class="form-label">Role</label>
+            <select
+              name="role"
+              id="role"
+              class="form-control"
+              aria-label="Default select example"
+              required
+            >
+              <option value="hr">HR</option>
+              <option value="candidate" selected>Candidate</option>
+            </select>
+          </div>
+
+          <div class="col-md-5">
+            <label for="location" class="form-label">Location</label>
+            <input type="text" name="location" required class="form-control" />
+          </div>
+        </div>
+
+        <div class="col-md-10">
+          <label for="about" class="form-label">About Me</label>
+          <input type="text" name="about" required class="form-control" />
+        </div>
+
+        <div class="row g-2">
+          <div class="col-md-6">
+            <label for="number" class="form-label">Contact Number</label>
+            <input type="tel" name="number" required class="form-control" />
+          </div>
+
+          <div class="col-md-4">
+            <label for="experience" class="form-label">Experience Year</label>
+            <input
+              type="number"
+              name="experience"
+              required
+              class="form-control"
+            />
+          </div>
+        </div>
+
+        <div class="col-md-10">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            name="password"
+            required
+            class="form-control"
+          />
+        </div>
+
+        <div class="col-md-10">
+          <button class="loginbtn">Create</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>

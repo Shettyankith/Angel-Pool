@@ -1,0 +1,89 @@
+<% layout('layouts/boilerplate') %>
+
+<body>
+    <div class="myaccount">
+        <h1 class="signupheading">My <span>Account</span></h1>
+        <div class="infodiv">
+        <div class="profilepic2">
+            <img  src="<%= user.pic.url %>" alt="profile-photo">
+        </div>
+        <div class="userinfo">
+            
+            <p><span>Name: </span> <%= user.username %></p>
+            <p><span>Email: </span> <%= user.email %>shettyankith2003@gmail.com</p>
+            <p><span>Contact Number: </span><%= user.number %></p>
+            <p><span>Location: </span> <%= user.location %> </p>
+            <p><span>Experience: </span><%= user.experience %> Years</p>
+            <p><span>About You: </span><%= user.about %></p>
+
+            <% if(role==="candidate") {%>
+                <% if(!resume.url) {%>
+                    <form action="/upload-cv" method="get">
+                        <button class="loginbtn">Upload CV</button>
+                    </form>
+                <% } else{ %>
+                    <form action="/view-cv" method="get">
+                        <button  id="viewcv" class="loginbtn">View CV</button>
+                    </form>
+                <% } %>
+             <% } %>
+            </div>
+        </div>
+
+        
+        <div class="savedjobs">
+            <h1>Saved Jobs</h1>
+                <% if(jobsData.length===0){ %>
+                    <p>No saved Jobs found</p>
+                <% } %>
+               
+                <% for(let job of jobsData){ %>
+                <div class="savedcard">
+                    <img src="<%= job.logo.url %>" alt="">
+                    <div class="savedcompany">
+                        <p class="comtitle"><%= job.company %></p>
+                        <p class="jobtitle"><%= job.title %></p>
+                    </div>
+                    
+                    <form action="/jobs/show/<%= job._id %>" method="get">
+                        <button class="filledbtn ">Show more</button>
+                    </form>
+                    <form action="/jobs/<%= job._id %>/deleteSavedJob?_method=DELETE" method="post">
+                        <button class=" emptybtn">Remove</button>
+                    </form>
+                  
+                </div>
+                <% } %>
+            
+        </div>
+
+
+        <div class="savedjobs">
+            <h1>Applied Jobs</h1>
+                <% if(appledJobData.length===0){ %>
+                    <p>No applied Jobs found</p>
+                <% } %>
+               
+                <% for(let job of appledJobData){ %>
+                    <div class="savedcard">
+                    <img src="<%= job.logo.url %>" alt="">
+                    <div class="savedcompany">
+                        <p class="comtitle"><%= job.company %></p>
+                        <p class="jobtitle"><%= job.title %></p>
+                    </div>
+                    
+                    <form action="/jobs/show/<%= job._id %>" method="get">
+                        <button class="filledbtn ">Show more</button>
+                    </form>
+                    <form action="/jobs/<%= job._id %>/deleteAppliedJob?_method=DELETE" method="post">
+                        <button class=" emptybtn">Withdraw</button>
+                    </form>
+                </div>
+                <% } %>
+            
+        </div>
+
+
+    </div>
+    </div>
+</body>

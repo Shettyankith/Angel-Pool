@@ -1,0 +1,51 @@
+<% layout('layouts/boilerplate') %>
+
+<body>
+  <div class="showpage">
+    <div class="logodisplay">
+      <img src="<%= job.logo.url %>" alt="company logo" />
+    </div>
+
+    <div class="detailspart">
+      <h1><%= job.title %></h1>
+      <p><span>Company: </span> <%= job.company %></p>
+      <p><span>Location: </span><%= job.location %></p>
+      <p><span>Salary: </span><%= job.salaryRange %></p>
+      <p><span>Job Category: </span><%= job.category %></p>
+      <p><span>Experience: </span><%= job.experience %></p>
+      <p><span>Remote Option: </span><%= job.remote %></p>
+      <p><span>Role Breif: </span><%= job.description %></p>
+      <p><span>Posted By: </span><%= job.postedby.username %></p>
+      <div class="btns">
+        <% if(currentUser && currentUser.username===postedby.username){ %>
+        <form action="/jobs/edit/<%= job._id %>" method="get">
+          <button class="filledbtn">Edit</button>
+        </form>
+        <form action="/jobs/<%= job._id %>?_method=DELETE" method="post">
+          <button class="emptybtn">Delete</button>
+        </form>
+        <% }%> <% if (role && role.role === "candidate") { %>
+        <form action="/jobs/<%= job._id %>/savedJobs" method="post">
+          <button class="filledbtn">
+            <% if(currentUser && currentUser.savedJobs.includes(job._id)){ %>
+            Saved <% }else{ %> Save <% } %>
+          </button>
+        </form>
+        <form action="/jobs/<%= job._id %>/apply" method="post">
+          <button class="emptybtn">
+            <% if(currentUser && currentUser.appliedJobs.includes(job._id)){ %>
+            Applied <% }else{ %> Apply <% } %>
+          </button>
+        </form>
+        <% } %> <% if (!role) { %>
+        <form action="/login" method="get">
+          <button class="filledbtn">Save</button>
+        </form>
+        <form action="/login" method="get">
+          <button class="emptybtn">Apply</button>
+        </form>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</body>

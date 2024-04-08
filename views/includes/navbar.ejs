@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/navbar.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <nav>
+        <ul class="menu">
+            <div class="navigationlinks">
+            <h4 class="angelpool">Angel <span>Pool</span></h4>
+            <li class="hide"><a href="/home">Home</a></li>
+           
+            <li class="hide"><a href="/jobs/new">Add new Job</a></li>
+            
+            <li class="hide"><a href="/jobs">New openings</a></li>
+            <li class="hide"><a href="/upload-cv"><i class="fa-solid fa-cloud-arrow-up"></i> Upload CV</a></li>
+            </div>
+            <div class="authenticationbuttons">
+              <% if(!currentUser){ %>
+             
+                <li class="hide"><a href="/login"><i class="fa-solid fa-arrow-right-to-bracket"></i> Log In</a></li>
+                <li class="hide"><a href="/register"><i class="fa-solid fa-user-plus"></i> Sign Up</a></li>
+              <% } %>
+              <% if(currentUser){ %>
+                <li class="hide"><a href="/my-account"><i class="fa-regular fa-user"></i> My account</a></li>
+                <li class="hide"><a href="/logout">Logout</a></li>
+              <% }%>
+              <p onclick=getsidebar()><i class="fa-solid fa-bars"></i></p>
+            </div>
+            
+        </ul>
+        <ul class="menu sidebar" id="sidebar">
+          <div class="navigationlinks display">
+            <li onclick=hidesidebar() ><a href="#"><i   class="fa-regular fa-circle-xmark cross"></i></a></li>
+          <li ><a href="/home">Home</a></li>
+          <li ><a href="/jobs/new">Add new Job</a></li>
+          <li ><a href="/jobs">New openings</a></li>
+          <li ><a href="/upload-cv"><i class="fa-solid fa-cloud-arrow-up"></i> Upload CV</a></li>
+          </div>
+          <div class="authenticationbuttons display">
+            <% if(!currentUser){ %>
+           
+              <li ><a href="/login"><i class="fa-solid fa-arrow-right-to-bracket"></i> Log In</a></li>
+              <li ><a href="/register"><i class="fa-solid fa-user-plus"></i> Sign Up</a></li>
+            <% } %>
+            <% if(currentUser){ %>
+              <li ><a href="/my-account"><i class="fa-regular fa-user"></i> My account</a></li>
+              <li ><a href="/logout">Logout</a></li>
+            <% }%>
+          </div>
+          
+      </ul>
+    </nav>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" 
+    integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+    <script src="/js/navbar.js"></script>
+</body>
+</html>
+</body>
+</html>

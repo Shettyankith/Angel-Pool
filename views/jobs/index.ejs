@@ -1,0 +1,26 @@
+<% layout('layouts/boilerplate') %>
+<body>
+  <div class="cardcontainer">
+    <% for(job of jobs ){%>
+    <div class="indexcard mb-5">
+      <div class="top">
+        <img src="<%= job.logo.url %>" alt="logo" />
+        <div class="details">
+          <h5 class="company"><%= job.company %></h5>
+          <h5 class="title"><%= job.title %></h5>
+        </div>
+      </div>
+
+      <div class="middle">
+        <p><%= job.description %></p>
+      </div>
+
+      <div class="bottom">
+        <form action="/jobs/show/<%= job._id %>" method="get">
+          <button class="showmore">Show More</button>
+        </form>
+      </div>
+    </div>
+    <% } %>
+  </div>
+</body>
