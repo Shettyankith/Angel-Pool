@@ -70,15 +70,7 @@
         max-width: 100%;
     }
 
-    /* Home page */
-    .text{
-        min-width: 50vw;
-        background-color: aqua;
-    }
-
-    .text p,h4,h5,h2{
-        width: 100%;
-    }
+   
 }
 
 
@@ -101,4 +93,25 @@
     .infodiv{
         flex-direction: column;
     }
+
+     /* Home page */
+     .text{
+        max-width: 100%;
+    }
+
+}
+
+@media (max-width:500px){
+    .text p{
+        font-size: 1rem;
+    }
+
+    .text h2{
+        font-size: 3rem;
+    }
+
+    .text h4{
+        font-size: 1.5rem;
+    }
+
 }

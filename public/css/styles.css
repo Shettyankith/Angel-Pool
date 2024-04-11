@@ -94,8 +94,8 @@ body {
 
 .home {
   background-image: url("../images/girl2.jpg");
-  width: 100% !important;
-  min-height: 100vh;
+  min-width: 100vw;
+  height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -105,8 +105,8 @@ body {
 }
 
 .text {
-  padding: 6rem;
-  max-width: 45%;
+  padding: 7%;
+  max-width: 55%;
   color: #37383d;
 }
 
@@ -148,8 +148,9 @@ body {
 }
 
 .brandicons img {
-  width: 30px;
-  padding: 7px;
+  width: 45px;
+ padding: 8px;
+  
 }
 
 .find {

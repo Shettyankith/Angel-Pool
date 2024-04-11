@@ -152,20 +152,21 @@ app.post(
   "/register",
   multer({ storage: picstorage }).single("pic"),
   async (req, res) => {
-    try {
-      const newUser = new User(req.body);
+      try{
+        const newUser = new User(req.body);
       const url = req.file.path;
       const filename = req.file.filename;
       newUser.pic = { url, filename };
-      console.log(newUser);
       const password = req.body.password;
       await User.register(newUser, password);
-      req.flash("success", `Welcome to Angel Pool ${req.user.username}`);
+      console.log(newUser);
+      req.flash("success", `Welcome to Angel Pool ${newUser.username}` );
       res.redirect("/jobs");
-    } catch (e) {
-      req.flash("error", e.message);
-      res.redirect("/signup");
-    }
+      }catch (error) {
+        console.error("Error during registration:", error);
+        req.flash("error", error.message); 
+        res.redirect("/register"); 
+      }
   }
 );
 
@@ -287,7 +288,7 @@ async function fetchSavedJobData(savedJobIds) {
 }
 
 //Resume upload route
-app.get("/upload-cv", (req, res) => {
+app.get("/upload-cv", isLoggedIn,(req, res) => {
   res.render("users/uploadcv.ejs");
 });
 
