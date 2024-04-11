@@ -338,6 +338,11 @@ body {
 }
 
 
+/* Edit Job */
+.addnewimg2{
+  background-image: url("../images/edit\ job.png");
+}
+
 
 /* My account css code */
 .myaccount{

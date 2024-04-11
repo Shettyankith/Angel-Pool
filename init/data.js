@@ -13,7 +13,7 @@ const fakeJobData = [
     category: 'Information Technology',
     experience: '3-5 years',
     remote: 'not available',
-    postedby:'66082b42d9675ed8c3212c51',
+    postedby:'6617603af70f0a52391434de',
     
   },
   {
@@ -30,7 +30,7 @@ const fakeJobData = [
     category: 'Marketing',
     experience: '2-4 years',
     remote: 'available',
-    postedby:'66082b42d9675ed8c3212c51',
+    postedby:'6617603af70f0a52391434de',
     
   },
   {
@@ -47,7 +47,7 @@ const fakeJobData = [
     category: 'Data Science',
     experience: '1-3 years',
     remote: 'not available',
-    postedby:'66082b42d9675ed8c3212c51',
+    postedby:'6617603af70f0a52391434de',
     
   },
   {
@@ -64,7 +64,7 @@ const fakeJobData = [
     category: 'Design',
     experience: '3-5 years',
     remote: 'available',
-    postedby:'66082b42d9675ed8c3212c51',
+    postedby:'6617603af70f0a52391434de',
    
   },
   {
@@ -81,7 +81,7 @@ const fakeJobData = [
     category: 'Project Management',
     experience: '5-8 years',
     remote: 'not available',
-    postedby:'66082b42d9675ed8c3212c51',
+    postedby:'6617603af70f0a52391434de',
     
   },
   {
@@ -98,7 +98,7 @@ const fakeJobData = [
     category: 'Information Technology',
     experience: '2-4 years',
     remote: 'available',
-    postedby:'66082b42d9675ed8c3212c51',
+    postedby:'6617603af70f0a52391434de',
     
   },
   
@@ -116,7 +116,7 @@ const fakeJobData = [
     category: 'Human Resources',
     experience: '3-5 years',
     remote: 'not available',
-    postedby:'66082b42d9675ed8c3212c51',
+    postedby:'6617603af70f0a52391434de',
    
   },
   {
@@ -133,7 +133,7 @@ const fakeJobData = [
     category: 'Finance',
     experience: '2-4 years',
     remote: 'available',
-    postedby:'66082b42d9675ed8c3212c51',
+    postedby:'6617603af70f0a52391434de',
    
   },
 
@@ -150,7 +150,7 @@ const fakeJobData = [
     category: "Customer Service",
     experience: "1-3 years",
     remote: "available",
-    postedby:'66082b42d9675ed8c3212c51',
+    postedby:'6617603af70f0a52391434de',
   },
   {
     title: "Quality Assurance Engineer",
@@ -165,7 +165,7 @@ const fakeJobData = [
     category: "Quality Assurance",
     experience: "3-5 years",
     remote: "not available",
-    postedby:'66082b42d9675ed8c3212c51',
+    postedby:'6617603af70f0a52391434de',
   },
   {
     title: "Network Administrator",
@@ -180,7 +180,7 @@ const fakeJobData = [
     category: "Information Technology",
     experience: "5-8 years",
     remote: "available",
-    postedby:'66082b42d9675ed8c3212c51',
+    postedby:'6617603af70f0a52391434de',
   },
 ];
 
