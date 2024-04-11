@@ -16,9 +16,3 @@ module.exports.saveRedirectUrl=(req,res,next)=>{
  next();
 };
 
-module.exports.iscvUploaded=(req,res,next)=>{
-    if(!req.user.resume){
-        return res.redirect("/upload-cv");
-    }
-    next();
-};

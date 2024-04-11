@@ -70,7 +70,9 @@
         max-width: 100%;
     }
 
-   
+   .home{
+    width: 100px !important;
+   }
 }
 
 
@@ -86,6 +88,9 @@
     .fontreduce{
         font-size: 1rem;
     }
+    .home{
+        width: 330px !important;
+    }
 }
 
 
@@ -94,14 +99,19 @@
         flex-direction: column;
     }
 
-     /* Home page */
-     .text{
-        max-width: 100%;
+    .home{
+        width: 100px !important;
+        color: aqua !important;
     }
 
 }
 
 @media (max-width:500px){
+
+    .text{
+        height: 100%;
+    }
+
     .text p{
         font-size: 1rem;
     }

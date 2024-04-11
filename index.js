@@ -21,7 +21,6 @@ const session = require("express-session");
 const {
   isLoggedIn,
   saveRedirectUrl,
-  iscvUploaded,
 } = require("./middleware.js");
 const ejsMate = require("ejs-mate");
 const flash = require("connect-flash");
@@ -227,7 +226,15 @@ app.delete("/jobs/:id/deleteSavedJob", isLoggedIn, async (req, res) => {
 });
 
 // Apply Job route
-app.post("/jobs/:id/apply", isLoggedIn, iscvUploaded, async (req, res) => {
+function isCvUploaded(req,res,next){
+  if(!req.user.resume){
+    console.log(req.user);
+  }
+  next();
+}
+
+
+app.post("/jobs/:id/apply", isLoggedIn, isCvUploaded,async (req, res) => {
   const id = req.params.id;
   const appliedJob = req.user.appliedJobs.includes(id);
   if (appliedJob) {
@@ -251,7 +258,7 @@ app.delete("/jobs/:id/deleteAppliedJob", isLoggedIn, async (req, res) => {
   const jobIndex = req.user.appliedJobs.indexOf(jobId);
   req.user.appliedJobs.splice(jobIndex, 1);
   await req.user.save();
-  req.flash("success", "Job is removed from saved list");
+  req.flash("success", "Job application withdrawedm succeesfully");
   res.redirect("/my-account");
 });
 

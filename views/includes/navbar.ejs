@@ -13,11 +13,13 @@
             <div class="navigationlinks">
             <h4 class="angelpool">Angel <span>Pool</span></h4>
             <li class="hide"><a href="/home">Home</a></li>
-           
+            <% if(currentUser&&  currentUser.role==="hr"){ %>
             <li class="hide"><a href="/jobs/new">Add new Job</a></li>
-            
+            <% } %>
             <li class="hide"><a href="/jobs">New openings</a></li>
+            <% if(currentUser&&  currentUser.role==="candidate"){ %>
             <li class="hide"><a href="/upload-cv"><i class="fa-solid fa-cloud-arrow-up"></i> Upload CV</a></li>
+            <% } %>
             </div>
             <div class="authenticationbuttons">
               <% if(!currentUser){ %>
