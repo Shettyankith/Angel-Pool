@@ -70,9 +70,13 @@
         max-width: 100%;
     }
 
-   .home{
-    width: 100px !important;
-   }
+    /* Show page css */
+
+   
+
+      .emptybtn,.filledbtn{
+        margin: 1rem;
+    }
 }
 
 
@@ -88,9 +92,14 @@
     .fontreduce{
         font-size: 1rem;
     }
-    .home{
-        width: 330px !important;
+    .detailspart h1{
+        font-size: 1.4rem;
     }
+
+    .detailspart p{
+        font-size: 1rem;
+    }
+
 }
 
 
@@ -99,29 +108,13 @@
         flex-direction: column;
     }
 
-    .home{
-        width: 100px !important;
-        color: aqua !important;
+    .showpage{
+        flex-direction:column;
     }
 
+    .logodisplay img{
+        width: 90%;
+        padding-left: 7%;
+      }
 }
 
-@media (max-width:500px){
-
-    .text{
-        height: 100%;
-    }
-
-    .text p{
-        font-size: 1rem;
-    }
-
-    .text h2{
-        font-size: 3rem;
-    }
-
-    .text h4{
-        font-size: 1.5rem;
-    }
-
-}
