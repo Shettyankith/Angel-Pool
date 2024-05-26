@@ -103,7 +103,7 @@ body {
 
 .indexcard {
   width: 250px;
-  min-height: 200px;
+  height: 230px;
   background-color: white;
   margin: 2rem;
   padding: 0.6rem;
@@ -141,14 +141,22 @@ body {
 .middle {
   padding-right: 0.5rem;
   padding-left: 0.5rem;
-  width: clamp(100%, 80%, 100%);
-  height: clamp(60px, 35%, 100px);
+  
+}
+
+.middle {
   overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  -webkit-box-orient: vertical;
+  line-height: 1.5; /* fallback if the line clamping is not supported */
+  max-height: 3em; /* fallback to limit height to equivalent of 2 lines */
 }
 
 .bottom {
-  margin-bottom: 0.5rem;
   padding-left: 0.5rem;
+  margin-top: 1rem;
 }
 
 .showmore {

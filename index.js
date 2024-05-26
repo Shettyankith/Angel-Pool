@@ -19,6 +19,7 @@ const { logostorage, picstorage, resumestorage } = require("./cloudConfig.js");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const session = require("express-session");
+const MongoStore=require("connect-mongo");
 const {
   isLoggedIn,
   saveRedirectUrl,
@@ -33,8 +34,23 @@ const user=require("./routes/user.js");
 
 const dbUrl=process.env.ATLAS_URL;
 
+
+
+const store=MongoStore.create({
+  mongoUrl:dbUrl,
+  crypto:{
+    secret:process.env.SECRET,
+  },
+  touchAfter:24*3600,
+});
+
+store.on("error",()=>{
+  console.log("ERROR in Mndo Store",err)
+})
+
 const sessionOptions = {
-  secret: "secretcode",
+  store:store,
+  secret: process.env.SECRET,
   resave: false,
   saveUninitialized: true,
   cookie: {
@@ -77,7 +93,6 @@ app.get("/", (req, res) => {
 });
 
 
-// User routes
 
 
 // Apply Job route
@@ -120,7 +135,7 @@ app.use((err, req, res, next) => {
 
 // Mongoose Connection
 async function main() {
-  await mongoose.connect("mongodb://127.0.0.1:27017/angel");
+  await mongoose.connect(dbUrl);
 }
 
 
