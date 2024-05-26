@@ -27,6 +27,11 @@ const ejsMate = require("ejs-mate");
 const flash = require("connect-flash");
 const ExpressError = require("./utils/ExpressError.js");
 const wrapAsync = require("./utils/wrapAsync.js");
+const jobs=require("./routes/jobs.js");
+const user=require("./routes/user.js");
+
+
+const dbUrl=process.env.ATLAS_URL;
 
 const sessionOptions = {
   secret: "secretcode",
@@ -63,170 +68,17 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use("/jobs",jobs);
+app.use("/user",user);
+
+
 app.get("/", (req, res) => {
   res.send("I AM ROOT");
 });
 
-//Home
-app.get("/home", (req, res) => {
-  res.render("jobs/home.ejs");
-});
-
-// Index route
-app.get("/jobs", async (req, res) => {
-  let jobs = await Job.find();
-  res.render("jobs/index.ejs", { jobs });
-});
-
-//Show route
-app.get("/jobs/show/:id", async (req, res) => {
-  try {
-    const id = req.params.id;
-    const job = await Job.findById(id).populate("postedby");
-    if (!job) {
-      return res.status(404).send("Job not found");
-    }
-    let postedby = job.postedby;
-    let role = req.user;
-    res.render("jobs/show.ejs", { job, role, postedby, currentUser: req.user });
-  } catch (error) {
-    console.error("Error:", error);
-    res.status(500).send("Internal Server Error");
-  }
-});
-
-//Edit Route
-app.get("/jobs/edit/:id", isLoggedIn, async (req, res) => {
-  let id = req.params.id;
-  let job = await Job.findById(id);
-  res.render("jobs/edit.ejs", { job });
-});
-
-app.post("/jobs/edit/:id", isLoggedIn, async (req, res) => {
-  let id = req.params.id;
-  let newJob = { ...req.body, new: true };
-  await Job.findByIdAndUpdate(id, newJob);
-  req.flash("success", `${newJob.title} details edited successfully`);
-  res.redirect(`/jobs/show/${id}`);
-});
-
-//Delete route
-app.delete("/jobs/:id", isLoggedIn, async (req, res) => {
-  let id = req.params.id;
-  await Job.findByIdAndDelete(id);
-  req.flash("success", "Job details deleted!");
-  res.redirect("/jobs");
-});
-
-
-// Create route
-app.get("/jobs/new", isLoggedIn, (req, res) => {
-  res.render("jobs/new.ejs");
-});
-
-
-app.post(
-  "/jobs/new",
-  isLoggedIn,
-  multer({ storage: picstorage }).single("logo"),
-  async (req, res) => {
-    let url = req.file.path;
-    let filename = req.file.filename;
-    let newJobData = req.body;
-    newJobData.logo = { url, filename };
-    newJobData.postedby = req.user._id;
-    let newJob = new Job(newJobData);
-    await newJob.save();
-    console.log(newJob);
-    req.flash("success", `${newJob.title} role created`);
-    res.redirect("/jobs");
-  }
-);
 
 // User routes
 
-// user register
-app.get("/register", (req, res) => {
-  res.render("users/register.ejs");
-});
-
-app.post(
-  "/register",
-  multer({ storage: picstorage }).single("pic"),
-  async (req, res) => {
-      try{
-        const newUser = new User(req.body);
-      const url = req.file.path;
-      const filename = req.file.filename;
-      newUser.pic = { url, filename };
-      const password = req.body.password;
-      await User.register(newUser, password);
-      console.log(newUser);
-      req.flash("success", `Welcome to Angel Pool ${newUser.username}` );
-      res.redirect("/jobs");
-      }catch (error) {
-        console.error("Error during registration:", error);
-        req.flash("error", error.message); 
-        res.redirect("/register"); 
-      }
-  }
-);
-
-// Login route
-app.get("/login", (req, res) => {
-  res.render("users/login.ejs");
-});
-
-app.post(
-  "/login",
-  saveRedirectUrl,
-  passport.authenticate("local", { failureRedirect: "/login" }),
-  async (req, res) => {
-    req.flash("success", `Welcome Back ${req.user.username}`);
-    let url = res.locals.redirectUrl || "/jobs";
-    res.redirect(url);
-  }
-);
-
-// Logout route
-app.get("/logout", (req, res, next) => {
-  req.logout((err) => {
-    if (err) {
-      return next(err);
-    }
-    req.flash("success", "You are logged out!");
-    res.redirect("/jobs");
-  });
-});
-
-//SavedJobs route
-app.post("/jobs/:id/savedJobs", async (req, res) => {
-  let id = req.params.id;
-  const savedJob = req.user.savedJobs.includes(id);
-  if (savedJob) {
-    req.flash("warning", "This job is already saved!");
-    res.redirect(`/jobs/show/${id}`);
-  } else {
-    const job = await Job.findById(id);
-    if (!job) {
-      req.flash("failure", "Job not found!");
-      res.redirect(`/jobs/show/${id}`);
-    }
-    req.user.savedJobs.push(id);
-    await req.user.save();
-    req.flash("success", "Job is saved successfully");
-    res.redirect(`/jobs/show/${id}`);
-  }
-});
-
-app.delete("/jobs/:id/deleteSavedJob", isLoggedIn, async (req, res) => {
-  let jobId = req.params.id;
-  const jobIndex = req.user.savedJobs.indexOf(jobId);
-  req.user.savedJobs.splice(jobIndex, 1);
-  await req.user.save();
-  req.flash("success", "Job is removed from saved list");
-  res.redirect("/my-account");
-});
 
 // Apply Job route
 function isCvUploaded(req,res,next){
@@ -236,85 +88,10 @@ function isCvUploaded(req,res,next){
   next();
 }
 
-
-app.post("/jobs/:id/apply", isLoggedIn, isCvUploaded,async (req, res) => {
-  const id = req.params.id;
-  const appliedJob = req.user.appliedJobs.includes(id);
-  if (appliedJob) {
-    req.flash("warning", "You have already applied for this role!");
-    res.redirect(`/jobs/show/${id}`);
-  } else {
-    let job = await Job.findById(id);
-    if (!job) {
-      req.flash("failure", "Job not found!");
-      res.redirect(`/jobs/show/${id}`);
-    }
-    req.user.appliedJobs.push(id);
-    await req.user.save();
-    req.flash("success", "You profile has been sent to HR");
-    res.redirect(`/jobs/show/${id}`);
-  }
+app.get("/home", (req, res) => {
+  res.render("jobs/home.ejs");
 });
 
-app.delete("/jobs/:id/deleteAppliedJob", isLoggedIn, async (req, res) => {
-  let jobId = req.params.id;
-  const jobIndex = req.user.appliedJobs.indexOf(jobId);
-  req.user.appliedJobs.splice(jobIndex, 1);
-  await req.user.save();
-  req.flash("success", "Job application withdrawed successfully");
-  res.redirect("/my-account");
-});
-
-// My account route
-app.get("/my-account", isLoggedIn, async (req, res) => {
-  let id = req.user.id;
-  let user = await User.findById(id);
-  let { resume, role, savedJobs, appliedJobs } = req.user;
-  let jobsData, appledJobData;
-  if (savedJobs || appliedJobs) {
-    jobsData = await fetchSavedJobData(savedJobs);
-    appledJobData = await fetchSavedJobData(appliedJobs);
-  }
-  res.render("users/myaccount.ejs", {
-    user,
-    resume,
-    role,
-    jobsData,
-    appledJobData,
-  });
-});
-
-async function fetchSavedJobData(savedJobIds) {
-  const savedJobData = [];
-  for (let id of savedJobIds) {
-    const job = await Job.findById(id).exec();
-    if (job) {
-      savedJobData.push(job);
-    } else {
-      console.log(`Cannot fetch data of job with id ${id}`);
-    }
-  }
-  return savedJobData;
-}
-
-//Resume upload route
-app.get("/upload-cv", isLoggedIn,(req, res) => {
-  res.render("users/uploadcv.ejs");
-});
-
-app.post(
-  "/upload-cv",
-  multer({ storage: resumestorage }).single("resume"),
-  async (req, res) => {
-    const url = req.file.path;
-    const filename = req.file.filename;
-    req.user.resume.url = url;
-    req.user.resume.filename = filename;
-    await req.user.save();
-    req.flash("success", "Resume Uploaded successfully");
-    res.redirect("/my-account");
-  }
-);
 
 
 app.get("/terms",(req,res)=>{
@@ -345,6 +122,8 @@ app.use((err, req, res, next) => {
 async function main() {
   await mongoose.connect("mongodb://127.0.0.1:27017/angel");
 }
+
+
 
 main()
   .then(() => {

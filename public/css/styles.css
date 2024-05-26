@@ -58,10 +58,11 @@
 }
 
 .loginbtn:hover {
-  border: 1px solid black;
-  color: black;
-
+  border: 3px solid #55bc7e;
+  color: #55bc7e;
+  background-color: transparent;
   transition: 0s;
+  font-weight: 600;
 }
 
 .link{

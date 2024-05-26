@@ -20,9 +20,9 @@
            
             <% if (currentUser && currentUser.role === "candidate") { %>
               <% if (currentUser.resume && currentUser.resume.url) { %>
-                <li class="hide"><a href="/upload-cv"><i class="fa-solid fa-cloud-arrow-up"></i> Re-upload CV</a></li>
+                <li class="hide"><a href="/user/upload-cv"><i class="fa-solid fa-cloud-arrow-up"></i> Re-upload CV</a></li>
               <% } else { %>
-                <li class="hide"><a href="/upload-cv"><i class="fa-solid fa-cloud-arrow-up"></i> Upload CV</a></li>
+                <li class="hide"><a href="/user/upload-cv"><i class="fa-solid fa-cloud-arrow-up"></i> Upload CV</a></li>
               <% } %>
             <% } %>
             
@@ -30,12 +30,12 @@
             <div class="authenticationbuttons">
               <% if(!currentUser){ %>
              
-                <li class="hide"><a href="/login"><i class="fa-solid fa-arrow-right-to-bracket"></i> Log In</a></li>
-                <li class="hide"><a href="/register"><i class="fa-solid fa-user-plus"></i> Sign Up</a></li>
+                <li class="hide"><a href="/user/login"><i class="fa-solid fa-arrow-right-to-bracket"></i> Log In</a></li>
+                <li class="hide"><a href="/user/register"><i class="fa-solid fa-user-plus"></i> Sign Up</a></li>
               <% } %>
               <% if(currentUser){ %>
-                <li class="hide"><a href="/my-account"><i class="fa-regular fa-user"></i> My account</a></li>
-                <li class="hide"><a href="/logout">Logout</a></li>
+                <li class="hide"><a href="/user/my-account"><i class="fa-regular fa-user"></i> My account</a></li>
+                <li class="hide"><a href="/user/logout">Logout</a></li>
               <% }%>
               <p onclick=getsidebar()><i class="fa-solid fa-bars"></i></p>
             </div>
@@ -51,9 +51,9 @@
            
             <% if (currentUser && currentUser.role === "candidate") { %>
               <% if (currentUser.resume && currentUser.resume.url) { %>
-                <li ><a href="/upload-cv"><i class="fa-solid fa-cloud-arrow-up"></i> Re-upload CV</a></li>
+                <li ><a href="/user/upload-cv"><i class="fa-solid fa-cloud-arrow-up"></i> Re-upload CV</a></li>
               <% } else { %>
-                <li ><a href="/upload-cv"><i class="fa-solid fa-cloud-arrow-up"></i> Upload CV</a></li>
+                <li ><a href="/user/upload-cv"><i class="fa-solid fa-cloud-arrow-up"></i> Upload CV</a></li>
               <% } %>
             <% } %>
             
@@ -64,12 +64,12 @@
           <div class="authenticationbuttons display">
             <% if(!currentUser){ %>
            
-              <li ><a href="/login"><i class="fa-solid fa-arrow-right-to-bracket"></i> Log In</a></li>
-              <li ><a href="/register"><i class="fa-solid fa-user-plus"></i> Sign Up</a></li>
+              <li ><a href="/user/login"><i class="fa-solid fa-arrow-right-to-bracket"></i> Log In</a></li>
+              <li ><a href="/user/register"><i class="fa-solid fa-user-plus"></i> Sign Up</a></li>
             <% } %>
             <% if(currentUser){ %>
-              <li ><a href="/my-account"><i class="fa-regular fa-user"></i> My account</a></li>
-              <li ><a href="/logout">Logout</a></li>
+              <li ><a href="/user/my-account"><i class="fa-regular fa-user"></i> My account</a></li>
+              <li ><a href="/user/logout">Logout</a></li>
             <% }%>
           </div>
           

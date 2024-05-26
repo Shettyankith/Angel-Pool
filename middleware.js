@@ -3,7 +3,7 @@ const user=require("./models/user");
 module.exports.isLoggedIn = (req, res, next) => {
     if (!req.isAuthenticated()) {
         req.session.redirecturl = req.originalUrl;
-        return res.redirect("/login"); 
+        return res.redirect("/user/login"); 
     }
     next();
 };
