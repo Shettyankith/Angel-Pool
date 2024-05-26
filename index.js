@@ -104,7 +104,7 @@ function isCvUploaded(req,res,next){
 }
 
 app.get("/home", (req, res) => {
- 
+  res.render("jobs/home.ejs");
 });
 
 
