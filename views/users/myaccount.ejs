@@ -16,17 +16,7 @@
             <p><span>Experience: </span><%= user.experience %> Years</p>
             <p><span>About You: </span><%= user.about %></p>
 
-            <% if(role==="candidate") {%>
-                <% if(!resume.url) {%>
-                    <form action="/upload-cv" method="get">
-                        <button class="loginbtn">Upload CV</button>
-                    </form>
-                <% } else{ %>
-                    <form action="/view-cv" method="get">
-                        <button  id="viewcv" class="loginbtn">View CV</button>
-                    </form>
-                <% } %>
-             <% } %>
+            
             </div>
         </div>
 

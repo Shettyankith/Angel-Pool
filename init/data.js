@@ -1,148 +1,132 @@
 const fakeJobData = [
   {
-    
-    title: 'Software Engineer',
-    company: 'Tech Solutions Inc.',
+    title: "Software Engineer",
+    company: "Tech Solutions Inc.",
     logo: {
-      url: 'https://res.cloudinary.com/dtrc1szcp/image/upload/v1711791640/angel_dev/pics/x7zok2rbrx3878z3dtum.png',
-      filename: 'angel_dev/pics/x7zok2rbrx3878z3dtum'
+      url: "https://res.cloudinary.com/dtrc1szcp/image/upload/v1711791640/angel_dev/pics/x7zok2rbrx3878z3dtum.png",
+      filename: "angel_dev/pics/x7zok2rbrx3878z3dtum",
     },
-    location: 'San Francisco, CA',
-    description: 'Join our innovative team of software engineers...',
-    salaryRange: '$80,000 - $100,000',
-    category: 'Information Technology',
-    experience: '3-5 years',
-    remote: 'not available',
-    postedby:'6617603af70f0a52391434de',
-    
+    location: "San Francisco, CA",
+    description: "Join our innovative team of software engineers...",
+    salaryRange: "$80,000 - $100,000",
+    category: "Information Technology",
+    experience: "3-5 years",
+    remote: "not available",
+    postedby: "6617603af70f0a52391434de",
   },
   {
-    
-    title: 'Marketing Specialist',
-    company: 'Digital Marketing Co.',
+    title: "Marketing Specialist",
+    company: "Digital Marketing Co.",
     logo: {
-      url: 'https://res.cloudinary.com/dtrc1szcp/image/upload/v1711791722/angel_dev/pics/wpbiujwerjxejsprfwxd.png',
-      filename: 'angel_dev/pics/wpbiujwerjxejsprfwxd'
+      url: "https://res.cloudinary.com/dtrc1szcp/image/upload/v1711791722/angel_dev/pics/wpbiujwerjxejsprfwxd.png",
+      filename: "angel_dev/pics/wpbiujwerjxejsprfwxd",
     },
-    location: 'New York, NY',
-    description: 'Exciting opportunity for a marketing professional...',
-    salaryRange: '$60,000 - $80,000',
-    category: 'Marketing',
-    experience: '2-4 years',
-    remote: 'available',
-    postedby:'6617603af70f0a52391434de',
-    
+    location: "New York, NY",
+    description: "Exciting opportunity for a marketing professional...",
+    salaryRange: "$60,000 - $80,000",
+    category: "Marketing",
+    experience: "2-4 years",
+    remote: "available",
+    postedby: "6617603af70f0a52391434de",
   },
   {
-    
-    title: 'Data Analyst',
-    company: 'Data Insights Corp.',
+    title: "Data Analyst",
+    company: "Data Insights Corp.",
     logo: {
-      url: 'https://res.cloudinary.com/dtrc1szcp/image/upload/v1711791849/angel_dev/pics/xgpkgzz6vhjxmbmrrgti.png',
-      filename: 'angel_dev/pics/xgpkgzz6vhjxmbmrrgti'
+      url: "https://res.cloudinary.com/dtrc1szcp/image/upload/v1711791849/angel_dev/pics/xgpkgzz6vhjxmbmrrgti.png",
+      filename: "angel_dev/pics/xgpkgzz6vhjxmbmrrgti",
     },
-    location: 'Austin, TX',
-    description: 'Analytical minds wanted! Join our data analysis team...',
-    salaryRange: '$70,000 - $90,000',
-    category: 'Data Science',
-    experience: '1-3 years',
-    remote: 'not available',
-    postedby:'6617603af70f0a52391434de',
-    
+    location: "Austin, TX",
+    description: "Analytical minds wanted! Join our data analysis team...",
+    salaryRange: "$70,000 - $90,000",
+    category: "Data Science",
+    experience: "1-3 years",
+    remote: "not available",
+    postedby: "6617603af70f0a52391434de",
   },
   {
-    
-    title: 'UX/UI Designer',
-    company: 'Creative Designs Studio',
+    title: "UX/UI Designer",
+    company: "Creative Designs Studio",
     logo: {
-      url: 'https://res.cloudinary.com/dtrc1szcp/image/upload/v1711791933/angel_dev/pics/ujuy4gbimghihkpvwyhg.png',
-      filename: 'angel_dev/pics/ujuy4gbimghihkpvwyhg'
+      url: "https://res.cloudinary.com/dtrc1szcp/image/upload/v1711791933/angel_dev/pics/ujuy4gbimghihkpvwyhg.png",
+      filename: "angel_dev/pics/ujuy4gbimghihkpvwyhg",
     },
-    location: 'Los Angeles, CA',
-    description: 'Passionate about user experience and design? Join us!',
-    salaryRange: '$75,000 - $95,000',
-    category: 'Design',
-    experience: '3-5 years',
-    remote: 'available',
-    postedby:'6617603af70f0a52391434de',
-   
+    location: "Los Angeles, CA",
+    description: "Passionate about user experience and design? Join us!",
+    salaryRange: "$75,000 - $95,000",
+    category: "Design",
+    experience: "3-5 years",
+    remote: "available",
+    postedby: "6617603af70f0a52391434de",
   },
   {
-   
-    title: 'Project Manager',
-    company: 'Project Excellence Ltd.',
+    title: "Project Manager",
+    company: "Project Excellence Ltd.",
     logo: {
-      url: 'https://res.cloudinary.com/dtrc1szcp/image/upload/v1711792018/angel_dev/pics/bbdenrcu4cfywaaa7br9.png',
-      filename: 'angel_dev/pics/bbdenrcu4cfywaaa7br9'
+      url: "https://res.cloudinary.com/dtrc1szcp/image/upload/v1711792018/angel_dev/pics/bbdenrcu4cfywaaa7br9.png",
+      filename: "angel_dev/pics/bbdenrcu4cfywaaa7br9",
     },
-    location: 'Chicago, IL',
-    description: 'Organize and lead successful projects with us...',
-    salaryRange: '$90,000 - $110,000',
-    category: 'Project Management',
-    experience: '5-8 years',
-    remote: 'not available',
-    postedby:'6617603af70f0a52391434de',
-    
+    location: "Chicago, IL",
+    description: "Organize and lead successful projects with us...",
+    salaryRange: "$90,000 - $110,000",
+    category: "Project Management",
+    experience: "5-8 years",
+    remote: "not available",
+    postedby: "6617603af70f0a52391434de",
   },
   {
-   
-    title: 'Frontend Developer',
-    company: 'Web Innovations LLC',
+    title: "Frontend Developer",
+    company: "Web Innovations LLC",
     logo: {
-      url: 'https://res.cloudinary.com/dtrc1szcp/image/upload/v1711792115/angel_dev/pics/t1pfwgivgyzcwul3ncka.png',
-      filename: 'angel_dev/pics/t1pfwgivgyzcwul3ncka'
+      url: "https://res.cloudinary.com/dtrc1szcp/image/upload/v1711792115/angel_dev/pics/t1pfwgivgyzcwul3ncka.png",
+      filename: "angel_dev/pics/t1pfwgivgyzcwul3ncka",
     },
-    location: 'Seattle, WA',
-    description: 'Creating stunning website designs based on user need',
-    salaryRange: '$85,000 - $105,000',
-    category: 'Information Technology',
-    experience: '2-4 years',
-    remote: 'available',
-    postedby:'6617603af70f0a52391434de',
-    
+    location: "Seattle, WA",
+    description: "Creating stunning website designs based on user need",
+    salaryRange: "$85,000 - $105,000",
+    category: "Information Technology",
+    experience: "2-4 years",
+    remote: "available",
+    postedby: "6617603af70f0a52391434de",
   },
-  
-  {
-   
-    title: 'HR Specialist',
-    company: 'People Management Solutions',
-    logo: {
-      url: 'https://res.cloudinary.com/dtrc1szcp/image/upload/v1711792335/angel_dev/pics/emlcayacnjzpupv1ckco.png',
-      filename: 'angel_dev/pics/emlcayacnjzpupv1ckco'
-    },
-    location: 'Denver, CO',
-    description: 'Join our team and help us build a great workplace...',
-    salaryRange: '$70,000 - $90,000',
-    category: 'Human Resources',
-    experience: '3-5 years',
-    remote: 'not available',
-    postedby:'6617603af70f0a52391434de',
-   
-  },
-  {
 
-    title: 'Financial Analyst',
-    company: 'Microsoft',
+  {
+    title: "HR Specialist",
+    company: "People Management Solutions",
     logo: {
-      url: 'https://res.cloudinary.com/dtrc1szcp/image/upload/v1711792510/angel_dev/pics/f9nthgqnapb5pwo7d9ce.png',
-      filename: 'angel_dev/pics/f9nthgqnapb5pwo7d9ce'
+      url: "https://res.cloudinary.com/dtrc1szcp/image/upload/v1711792335/angel_dev/pics/emlcayacnjzpupv1ckco.png",
+      filename: "angel_dev/pics/emlcayacnjzpupv1ckco",
     },
-    location: 'Houston, TX',
-    description: 'Analyze financial data and provide strategic insights...',
-    salaryRange: '$80,000 - $100,000',
-    category: 'Finance',
-    experience: '2-4 years',
-    remote: 'available',
-    postedby:'6617603af70f0a52391434de',
-   
+    location: "Denver, CO",
+    description: "Join our team and help us build a great workplace...",
+    salaryRange: "$70,000 - $90,000",
+    category: "Human Resources",
+    experience: "3-5 years",
+    remote: "not available",
+    postedby: "6617603af70f0a52391434de",
+  },
+  {
+    title: "Financial Analyst",
+    company: "Microsoft",
+    logo: {
+      url: "https://res.cloudinary.com/dtrc1szcp/image/upload/v1711792510/angel_dev/pics/f9nthgqnapb5pwo7d9ce.png",
+      filename: "angel_dev/pics/f9nthgqnapb5pwo7d9ce",
+    },
+    location: "Houston, TX",
+    description: "Analyze financial data and provide strategic insights...",
+    salaryRange: "$80,000 - $100,000",
+    category: "Finance",
+    experience: "2-4 years",
+    remote: "available",
+    postedby: "6617603af70f0a52391434de",
   },
 
   {
     title: "Customer Support Specialist",
-    company: "Support Hub Ltd.",
+    company: "Facebook",
     logo: {
-      url: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepnglogos.com%2Fpics%2Fcompany-logo-ideas&psig=AOvVaw2akM7Qd-lNijH8qv_zLFYy&ust=1711722533316000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCOihmb-Vl4UDFQAAAAAdAAAAABAK",
-      filename: "customer_support_logo.jpg",
+      url: "https://res.cloudinary.com/dtrc1szcp/image/upload/v1713081257/angel_dev/pics/shfayofzf83ftcmmxrie.png",
+      filename: "angel_dev/pics/shfayofzf83ftcmmxrie",
     },
     location: "Atlanta, GA",
     description: "Provide excellent customer service and support...",
@@ -150,14 +134,15 @@ const fakeJobData = [
     category: "Customer Service",
     experience: "1-3 years",
     remote: "available",
-    postedby:'6617603af70f0a52391434de',
+    postedby: "6617603af70f0a52391434de",
   },
+
   {
     title: "Quality Assurance Engineer",
-    company: "QA Solutions Co.",
+    company: "Netflix",
     logo: {
-      url: "https://www.google.com/imgres?imgurl=https%3A%2F%2Ffabrikbrands.com%2Fwp-content%2Fuploads%2FTechnology-Company-Logos-10.png&tbnid=Vw4MstfXt986tM&vet=12ahUKEwi-iti9lZeFAxWH4jgGHQH1Bx0QMyg5egUIARDMAQ..i&imgrefurl=https%3A%2F%2Ffabrikbrands.com%2Ftech-logos-famous-technology-company-logos-and-names%2F&docid=8XjBj7F7PkG-zM&w=2880&h=1800&q=top%20company%20logos%20in%20png&ved=2ahUKEwi-iti9lZeFAxWH4jgGHQH1Bx0QMyg5egUIARDMAQ",
-      filename: "qa_engineer_logo.jpg",
+      url: "https://res.cloudinary.com/dtrc1szcp/image/upload/v1713081350/angel_dev/pics/spvrnphyo67fph8hpdns.png",
+      filename: "angel_dev/pics/spvrnphyo67fph8hpdns",
     },
     location: "Dallas, TX",
     description: "Ensure product quality through rigorous testing...",
@@ -165,14 +150,15 @@ const fakeJobData = [
     category: "Quality Assurance",
     experience: "3-5 years",
     remote: "not available",
-    postedby:'6617603af70f0a52391434de',
+    postedby: "6617603af70f0a52391434de",
   },
+
   {
     title: "Network Administrator",
     company: "Network Experts LLC",
     logo: {
-      url: "https://www.google.com/imgres?imgurl=https%3A%2F%2Finkbotdesign.com%2Fwp-content%2Fuploads%2F2023%2F02%2FIntel-Logo-Design-in-BLue-1024x640.png&tbnid=tNNu4Bfn-6M3dM&vet=12ahUKEwi-iti9lZeFAxWH4jgGHQH1Bx0QMygXegQIARB9..i&imgrefurl=https%3A%2F%2Finkbotdesign.com%2F100-famous-logos%2F&docid=4GlVUW7MMkjovM&w=1024&h=640&q=top%20company%20logos%20in%20png&ved=2ahUKEwi-iti9lZeFAxWH4jgGHQH1Bx0QMygXegQIARB9",
-      filename: "network_admin_logo.jpg",
+      url: "https://res.cloudinary.com/dtrc1szcp/image/upload/v1713081455/angel_dev/pics/siysp4xc1atknt7g7nyq.png",
+      filename: "angel_dev/pics/siysp4xc1atknt7g7nyq",
     },
     location: "Philadelphia, PA",
     description: "Manage and optimize network infrastructure...",
@@ -180,7 +166,23 @@ const fakeJobData = [
     category: "Information Technology",
     experience: "5-8 years",
     remote: "available",
-    postedby:'6617603af70f0a52391434de',
+    postedby: "6617603af70f0a52391434de",
+  },
+  {
+    title: "Data Analyst",
+    company: "Starbucks",
+    logo: {
+      url: "https://res.cloudinary.com/dtrc1szcp/image/upload/v1713081544/angel_dev/pics/p2hitrwm3jto5njtymnt.png",
+      filename: "angel_dev/pics/p2hitrwm3jto5njtymnt",
+    },
+    location: "Bangalore ",
+    description:
+      "We are looking for a senior visual designer for our team who is expereinced atleat 3 years in designing field and can create stunning user freindly designs",
+    salaryRange: "$60,000 - $80,00",
+    category: "Free Lancer",
+    experience: "3 years",
+    remote: "available",
+    postedby: "6617603af70f0a52391434de",
   },
 ];
 

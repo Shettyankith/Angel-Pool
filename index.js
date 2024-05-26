@@ -10,6 +10,7 @@ const User = require("./models/user");
 const Job = require("./models/job");
 const ejs = require("ejs");
 const path = require("path");
+
 const expressLayouts = require("express-ejs-layouts");
 const methodoverride = require("method-override");
 const multer = require("multer");
@@ -117,10 +118,12 @@ app.delete("/jobs/:id", isLoggedIn, async (req, res) => {
   res.redirect("/jobs");
 });
 
+
 // Create route
 app.get("/jobs/new", isLoggedIn, (req, res) => {
   res.render("jobs/new.ejs");
 });
+
 
 app.post(
   "/jobs/new",
@@ -258,7 +261,7 @@ app.delete("/jobs/:id/deleteAppliedJob", isLoggedIn, async (req, res) => {
   const jobIndex = req.user.appliedJobs.indexOf(jobId);
   req.user.appliedJobs.splice(jobIndex, 1);
   await req.user.save();
-  req.flash("success", "Job application withdrawedm succeesfully");
+  req.flash("success", "Job application withdrawed successfully");
   res.redirect("/my-account");
 });
 
@@ -308,16 +311,16 @@ app.post(
     req.user.resume.url = url;
     req.user.resume.filename = filename;
     await req.user.save();
-    console.log("Resume uploaded!");
-    res.render("users/myaccount.ejs");
+    req.flash("success", "Resume Uploaded successfully");
+    res.redirect("/my-account");
   }
 );
 
-// View CV
-app.get("/view-cv", isLoggedIn, (req, res) => {
-  const url = req.user.resume.url;
-  res.json({ url });
-});
+
+app.get("/terms",(req,res)=>{
+  res.render("includes/terms&Condition.ejs");
+})
+
 
 //Handling random routes
 app.get("*", (req, res, next) => {

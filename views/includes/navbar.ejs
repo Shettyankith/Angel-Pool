@@ -17,9 +17,15 @@
             <li class="hide"><a href="/jobs/new">Add new Job</a></li>
             <% } %>
             <li class="hide"><a href="/jobs">New openings</a></li>
-            <% if(currentUser&&  currentUser.role==="candidate"){ %>
-            <li class="hide"><a href="/upload-cv"><i class="fa-solid fa-cloud-arrow-up"></i> Upload CV</a></li>
+           
+            <% if (currentUser && currentUser.role === "candidate") { %>
+              <% if (currentUser.resume && currentUser.resume.url) { %>
+                <li class="hide"><a href="/upload-cv"><i class="fa-solid fa-cloud-arrow-up"></i> Re-upload CV</a></li>
+              <% } else { %>
+                <li class="hide"><a href="/upload-cv"><i class="fa-solid fa-cloud-arrow-up"></i> Upload CV</a></li>
+              <% } %>
             <% } %>
+            
             </div>
             <div class="authenticationbuttons">
               <% if(!currentUser){ %>
@@ -39,9 +45,21 @@
           <div class="navigationlinks display">
             <li onclick=hidesidebar() ><a href="#"><i   class="fa-regular fa-circle-xmark cross"></i></a></li>
           <li ><a href="/home">Home</a></li>
-          <li ><a href="/jobs/new">Add new Job</a></li>
+          <% if(currentUser&&  currentUser.role==="hr"){ %>
+            <li ><a href="/jobs/new">Add new Job</a></li>
+            <% } %>
+           
+            <% if (currentUser && currentUser.role === "candidate") { %>
+              <% if (currentUser.resume && currentUser.resume.url) { %>
+                <li ><a href="/upload-cv"><i class="fa-solid fa-cloud-arrow-up"></i> Re-upload CV</a></li>
+              <% } else { %>
+                <li ><a href="/upload-cv"><i class="fa-solid fa-cloud-arrow-up"></i> Upload CV</a></li>
+              <% } %>
+            <% } %>
+            
+
           <li ><a href="/jobs">New openings</a></li>
-          <li ><a href="/upload-cv"><i class="fa-solid fa-cloud-arrow-up"></i> Upload CV</a></li>
+         
           </div>
           <div class="authenticationbuttons display">
             <% if(!currentUser){ %>

@@ -367,7 +367,8 @@ body {
   margin-left: 2rem;
   margin-right: 2rem;
   font-weight: 600;
-  width: 100px;
+  width: fit-content;
+  min-width: 100px;
   border-radius: 5px;
   height: 40px;
   border: none;
@@ -375,8 +376,9 @@ body {
 }
 
 .filledbtn:hover{
-  border:1px solid  black;
-  color: black;
+  border:2px solid  #55bc7e;
+  color: #55bc7e;
+  background-color: transparent;
 }
 
 .emptybtn:hover{
