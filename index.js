@@ -89,7 +89,7 @@ app.use("/user",user);
 
 
 app.get("/", (req, res) => {
-  res.send("I AM ROOT");
+  res.render("jobs/home.ejs");
 });
 
 
@@ -104,7 +104,7 @@ function isCvUploaded(req,res,next){
 }
 
 app.get("/home", (req, res) => {
-  res.render("jobs/home.ejs");
+ 
 });
 
 
