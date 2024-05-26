@@ -7,7 +7,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const User = require("./models/user");
-const Job = require("./models/job");
+
 const ejs = require("ejs");
 const path = require("path");
 

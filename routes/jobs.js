@@ -17,134 +17,42 @@ const {
     isLoggedIn,
   } = require("../middleware.js");
 
+const jobsController=require("../controllers/jobs.js");
 
   // Index route
-  router.get("/", async (req, res) => {
-    let jobs = await Job.find();
-    res.render("jobs/index.ejs", { jobs });
-  });
+  router.get("/", jobsController.index);
   
   //Show route
-  router.get("/show/:id", async (req, res) => {
-    try {
-      const id = req.params.id;
-      const job = await Job.findById(id).populate("postedby");
-      if (!job) {
-        return res.status(404).send("Job not found");
-      }
-      let postedby = job.postedby;
-      let role = req.user;
-      res.render("jobs/show.ejs", { job, role, postedby, currentUser: req.user });
-    } catch (error) {
-      console.error("Error:", error);
-      res.status(500).send("Internal Server Error");
-    }
-  });
+  router.get("/show/:id", jobsController.show);
   
   //Edit Route
-  router.get("/edit/:id", isLoggedIn, async (req, res) => {
-    let id = req.params.id;
-    let job = await Job.findById(id);
-    res.render("jobs/edit.ejs", { job });
-  });
+  router.get("/edit/:id", isLoggedIn, jobsController.editForm);
   
-  router.post("/edit/:id", isLoggedIn, async (req, res) => {
-    let id = req.params.id;
-    let newJob = { ...req.body, new: true };
-    await Job.findByIdAndUpdate(id, newJob);
-    req.flash("success", `${newJob.title} details edited successfully`);
-    res.redirect(`/jobs/show/${id}`);
-  });
+  router.post("/edit/:id", isLoggedIn, jobsController.edit);
   
   //Delete route
-  router.delete("/:id", isLoggedIn, async (req, res) => {
-    let id = req.params.id;
-    await Job.findByIdAndDelete(id);
-    req.flash("success", "Job details deleted!");
-    res.redirect("/jobs");
-  });
+  router.delete("/:id", isLoggedIn, jobsController.deleteJob);
   
   
   // Create route
-  router.get("/new", isLoggedIn, (req, res) => {
-    res.render("jobs/new.ejs");
-  });
+  router.get("/new", isLoggedIn, jobsController.createForm);
   
   
   router.post(
     "/new",
     isLoggedIn,
     multer({ storage: picstorage }).single("logo"),
-    async (req, res) => {
-      let url = req.file.path;
-      let filename = req.file.filename;
-      let newJobData = req.body;
-      newJobData.logo = { url, filename };
-      newJobData.postedby = req.user._id;
-      let newJob = new Job(newJobData);
-      await newJob.save();
-      console.log(newJob);
-      req.flash("success", `${newJob.title} role created`);
-      res.redirect("/jobs");
-    }
+    jobsController.create
   );
 
   
 //SavedJobs route
-router.post("/:id/savedJobs", async (req, res) => {
-    let id = req.params.id;
-    const savedJob = req.user.savedJobs.includes(id);
-    if (savedJob) {
-      req.flash("warning", "This job is already saved!");
-      res.redirect(`/jobs/show/${id}`);
-    } else {
-      const job = await Job.findById(id);
-      if (!job) {
-        req.flash("failure", "Job not found!");
-        res.redirect(`/jobs/show/${id}`);
-      }
-      req.user.savedJobs.push(id);
-      await req.user.save();
-      req.flash("success", "Job is saved successfully");
-      res.redirect(`/jobs/show/${id}`);
-    }
-  });
+router.post("/:id/savedJobs", jobsController.savedJobs);
   
-  router.delete("/:id/deleteSavedJob", isLoggedIn, async (req, res) => {
-    let jobId = req.params.id;
-    const jobIndex = req.user.savedJobs.indexOf(jobId);
-    req.user.savedJobs.splice(jobIndex, 1);
-    await req.user.save();
-    req.flash("success", "Job is removed from saved list");
-    res.redirect("/user/my-account");
-  });
+  router.delete("/:id/deleteSavedJob", isLoggedIn, jobsController.deleteSavedJob);
 
   
-  router.post("/:id/apply", isLoggedIn, isCvUploaded,async (req, res) => {
-    const id = req.params.id;
-    const appliedJob = req.user.appliedJobs.includes(id);
-    if (appliedJob) {
-      req.flash("warning", "You have already applied for this role!");
-      res.redirect(`/jobs/show/${id}`);
-    } else {
-      let job = await Job.findById(id);
-      if (!job) {
-        req.flash("failure", "Job not found!");
-        res.redirect(`/jobs/show/${id}`);
-      }
-      req.user.appliedJobs.push(id);
-      await req.user.save();
-      req.flash("success", "You profile has been sent to HR");
-      res.redirect(`/jobs/show/${id}`);
-    }
-  });
+  router.post("/:id/apply", isLoggedIn, isCvUploaded,jobsController.apply);
   
-  router.delete("/:id/deleteAppliedJob", isLoggedIn, async (req, res) => {
-    let jobId = req.params.id;
-    const jobIndex = req.user.appliedJobs.indexOf(jobId);
-    req.user.appliedJobs.splice(jobIndex, 1);
-    await req.user.save();
-    req.flash("success", "Job application withdrawed successfully");
-    res.redirect("/user/my-account");
-  });
+  router.delete("/:id/deleteAppliedJob", isLoggedIn, jobsController.deleteAppliedJob);
   module.exports=router;
