@@ -77,6 +77,10 @@
       .emptybtn,.filledbtn{
         margin: 1rem;
     }
+    .carcardcontainer{
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 
@@ -118,8 +122,3 @@
       }
 }
 
-@media (max-width:370px){
-    .indexcard{
-        width: 90%;
-    }
-}
