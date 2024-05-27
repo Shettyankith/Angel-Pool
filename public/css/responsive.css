@@ -118,3 +118,8 @@
       }
 }
 
+@media (max-width:370px){
+    .indexcard{
+        width: 90%;
+    }
+}
