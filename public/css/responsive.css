@@ -78,9 +78,9 @@
 }
 
 @media(max-width:400px){
-    .carcardcontainer{
-        display: block;
-        margin: 0 auto;
+    .indexcard {
+        width: 90% !important;
+        margin: 2rem;
     }
 }
 
