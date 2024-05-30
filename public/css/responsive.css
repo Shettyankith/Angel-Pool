@@ -71,18 +71,18 @@
     }
 
     /* Show page css */
-
-   
-
       .emptybtn,.filledbtn{
         margin: 1rem;
     }
-    .carcardcontainer{
-        justify-content: center;
-        align-items: center;
-    }
+    
 }
 
+@media(max-width:400px){
+    .carcardcontainer{
+        display: block;
+        margin: 0 auto;
+    }
+}
 
 @media (max-width:330px) {
     .loginheading,.signupheading{

@@ -7,7 +7,7 @@ module.exports.registerForm= (req, res) => {
 
 module.exports.register=async (req, res) => {
     try{
-      const newUser = new User(req.body);
+    const newUser = new User(req.body);
     const url = req.file.path;
     const filename = req.file.filename;
     newUser.pic = { url, filename };
